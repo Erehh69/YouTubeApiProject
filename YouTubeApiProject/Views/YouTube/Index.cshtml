@@ -1,0 +1,56 @@
+﻿@model List<YouTubeApiProject.Models.YouTubeVideoModel>
+
+<h2>Search YouTube Videos</h2>
+<form asp-action="Search" method="post" class="form-inline">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="query" placeholder="Search for videos..." value="@ViewBag.Query" required />
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <div class="row">
+        @foreach (var video in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="@video.ThumbnailUrl" class="card-img-top" alt="@video.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a href="https://www.youtube.com/watch?v=@video.VideoId" target="_blank" class="text-decoration-none">@video.Title</a>
+                        </h5>
+                        <p class="card-text">@video.Description</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @if (ViewBag.PrevPageToken != null)
+            {
+                <li class="page-item">
+                    <form asp-action="Search" method="post" style="display: inline;">
+                        <input type="hidden" name="query" value="@ViewBag.Query" />
+                        <input type="hidden" name="pageToken" value="@ViewBag.PrevPageToken" />
+                        <button class="page-link" type="submit">Previous</button>
+                    </form>
+                </li>
+            }
+            @if (ViewBag.NextPageToken != null)
+            {
+                <li class="page-item">
+                    <form asp-action="Search" method="post" style="display: inline;">
+                        <input type="hidden" name="query" value="@ViewBag.Query" />
+                        <input type="hidden" name="pageToken" value="@ViewBag.NextPageToken" />
+                        <button class="page-link" type="submit">Next</button>
+                    </form>
+                </li>
+            }
+        </ul>
+    </nav>
+}
