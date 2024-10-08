@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\Hilal\\source\\repos\\YouTubeApiProject\\YouTubeApiProject\\wwwroot\\image\\logo.png",
+      "PackagePath": "staticwebassets\\image\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\Hilal\\source\\repos\\YouTubeApiProject\\YouTubeApiProject\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

@@ -9,4 +9,12 @@
         public string ViewCount { get; set; }  // New property for total views
         public string LikeCount { get; set; }  // New property for total likes
     }
+
+    public class YouTubeSearchResultsModel
+    {
+        public List<YouTubeVideoModel> Videos { get; set; }
+        public string NextPageToken { get; set; }
+        public string PrevPageToken { get; set; }
+        public string Query { get; set; }
+    }
 }

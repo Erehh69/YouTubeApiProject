@@ -14,7 +14,7 @@ namespace YouTubeApiProject.Services
         }
 
         // Method to search videos
-        public async Task<List<YouTubeVideoModel>> SearchVideosAsync(string query)
+        public async Task<(List<YouTubeVideoModel>, string nextPageToken, string prevPageToken)> SearchVideosAsync(string query, string pageToken = "")
         {
             try
             {
@@ -25,8 +25,10 @@ namespace YouTubeApiProject.Services
                 });
 
                 var searchRequest = youtubeService.Search.List("snippet");
-                searchRequest.Q = query; // User's query
+                searchRequest.Q = query;
                 searchRequest.MaxResults = 10;
+                searchRequest.PageToken = pageToken; // Handle pagination
+                searchRequest.Type = "video";
 
                 var searchResponse = await searchRequest.ExecuteAsync();
 
@@ -38,14 +40,15 @@ namespace YouTubeApiProject.Services
                     VideoId = item.Id.VideoId
                 }).ToList();
 
-                return videos;
+                return (videos, searchResponse.NextPageToken, searchResponse.PrevPageToken);
             }
             catch (Exception ex)
             {
-                // Handle error and return an empty list
-                return new List<YouTubeVideoModel>();
+                // Handle error, return empty list if failure occurs
+                return (new List<YouTubeVideoModel>(), null, null);
             }
         }
+
 
         // Method to get trending videos (already defined)
         public async Task<List<YouTubeVideoModel>> GetTrendingVideosAsync()

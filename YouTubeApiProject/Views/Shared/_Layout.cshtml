@@ -3,47 +3,90 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - YouTubeApiProject</title>
+    <title>@ViewData["Title"] - TubeQuest</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/YouTubeApiProject.styles.css" asp-append-version="true" />
+    <style>
+        /* Additional CSS to handle the footer positioning */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+            margin: 0; /* Remove default margin */
+        }
+
+        .content {
+            flex-grow: 1; /* Allows the content area to expand and push the footer down */
+            padding: 20px; /* Adds padding around the content */
+        }
+
+        .video-card {
+            position: relative; /* Allow positioning for hover effects */
+            margin: 15px;
+            border: 1px solid #ccc; /* Optional: border for video cards */
+            border-radius: 8px; /* Rounded corners */
+            overflow: hidden; /* Ensures inner elements don't overflow */
+            transition: transform 0.2s; /* Smooth transition on hover */
+        }
+
+            .video-card:hover {
+                transform: scale(1.05); /* Slightly scale the card on hover */
+                z-index: 1; /* Bring hovered card to the front */
+            }
+
+        .footer {
+            text-align: center; /* Center text in the footer */
+            padding: 1rem 0; /* Vertical padding for footer */
+            background-color: #f8f9fa; /* Light background for footer */
+        }
+
+        /* Style for logo and site name */
+        .navbar-brand {
+            display: flex;
+            align-items: center; /* Vertically centers the logo and text */
+        }
+
+            .navbar-brand img {
+                height: 40px; /* Set a height for the logo */
+                margin-right: 10px; /* Space between the logo and site name */
+            }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">YouTubeApiProject</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/image/logo.png" alt="Logo" /> <!-- Slot for logo -->
+                    TubeQuest
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav">
-                        <!-- Home Menu -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Home" aspaction="Index">Home</a>
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <!-- Search Music Menu -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="YouTube"
-                               asp-action="Index">Search Music</a>
+                            <a class="nav-link text-dark" asp-controller="YouTube" asp-action="Index">Search Music</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
+
+    <div class="container content">
+        <!-- Updated content wrapper -->
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - YouTubeApiProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

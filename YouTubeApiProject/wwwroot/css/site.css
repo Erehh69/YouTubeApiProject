@@ -1,22 +1,49 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-  margin-bottom: 60px;
+    font-family: Arial, sans-serif; /* Set a modern font */
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.video-card {
+    position: relative; /* Position relative for child elements */
+    overflow: hidden; /* Hide overflow */
+    border: 1px solid #ddd; /* Border for definition */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth transition */
+    background-color: #ffffff; /* White background for the card */
+}
+
+.video-card:hover {
+    transform: scale(1.05); /* Scale on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.video-card img {
+    width: 100%; /* Make image responsive */
+    border-top-left-radius: 8px; /* Round top corners */
+    border-top-right-radius: 8px; /* Round top corners */
+}
+
+.video-card h5, .video-card p {
+    margin: 10px; /* Add margin */
+    color: #333; /* Darker text for readability */
+}
+
+.video-card .btn {
+    margin: 10px; /* Margin for button */
+    width: calc(100% - 20px); /* Full width minus margins */
+    text-align: center; /* Center text */
+}
+
+.container {
+    max-width: 1200px; /* Maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+}
+
+footer {
+    margin-top: 20px; /* Spacing above footer */
+    padding: 10px; /* Padding for footer */
+    background-color: #343a40; /* Dark background for footer */
+    color: white; /* White text color */
 }
