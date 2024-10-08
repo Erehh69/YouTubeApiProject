@@ -1,8 +1,25 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<YouTubeApiProject.Models.YouTubeVideoModel>
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to YouTube Trending</h1>
+    <p>Learn about building Web apps with ASP.NET Core.</p>
+
+    <h2>Trending Videos</h2>
+    <div class="row">
+        @foreach (var video in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <img src="@video.ThumbnailUrl" alt="@video.Title" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">@video.Title</h5>
+                        <p class="card-text">@video.Description</p>
+                        <p class="card-text"><strong>Views:</strong> @video.ViewCount</p>
+                        <p class="card-text"><strong>Likes:</strong> @video.LikeCount</p>
+                        <a href="https://www.youtube.com/watch?v=@video.VideoId" target="_blank" class="btn btn-primary">Watch</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

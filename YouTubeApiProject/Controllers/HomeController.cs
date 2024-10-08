@@ -1,32 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+using YouTubeApiProject.Services;
 using YouTubeApiProject.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace YouTubeApiProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly YouTubeApiService _youtubeService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(YouTubeApiService youtubeService)
         {
-            _logger = logger;
+            _youtubeService = youtubeService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var trendingVideos = await _youtubeService.GetTrendingVideosAsync();
+            return View(trendingVideos);
         }
     }
 }

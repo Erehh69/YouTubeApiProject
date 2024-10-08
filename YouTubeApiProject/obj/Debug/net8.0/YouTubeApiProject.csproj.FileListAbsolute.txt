@@ -373,3 +373,4 @@ C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Debug\net8.0
 C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Debug\net8.0\YouTubeApiProject.pdb
 C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Debug\net8.0\YouTubeApiProject.genruntimeconfig.cache
 C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Debug\net8.0\ref\YouTubeApiProject.dll
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Debug\net8.0\YouTubeApiProject.sourcelink.json

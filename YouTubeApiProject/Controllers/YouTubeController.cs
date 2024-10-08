@@ -2,6 +2,7 @@
 using YouTubeApiProject.Services;
 using YouTubeApiProject.Models;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace YouTubeApiProject.Controllers
 {
@@ -14,20 +15,22 @@ namespace YouTubeApiProject.Controllers
             _youtubeService = youtubeService;
         }
 
+        // Display Search Page
         public IActionResult Index()
         {
             return View(new List<YouTubeVideoModel>()); // Pass an empty list initially
         }
 
+        // Handle the search query
         [HttpPost]
-        public async Task<IActionResult> Search(string query, string pageToken = "")
+        public async Task<IActionResult> Search(string query)
         {
-            var (videos, nextPageToken, prevPageToken) = await _youtubeService.SearchVideosAsync(query, pageToken);
+            if (string.IsNullOrEmpty(query))
+            {
+                return View("Index", new List<YouTubeVideoModel>()); // Return empty view if no query
+            }
 
-            ViewBag.NextPageToken = nextPageToken;
-            ViewBag.PrevPageToken = prevPageToken;
-            ViewBag.Query = query;
-
+            var videos = await _youtubeService.SearchVideosAsync(query);
             return View("Index", videos);
         }
     }
