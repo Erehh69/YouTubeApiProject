@@ -64,7 +64,7 @@ namespace YouTubeApiProject.Services
                 var searchRequest = youtubeService.Videos.List("snippet,statistics");
                 searchRequest.Chart = VideosResource.ListRequest.ChartEnum.MostPopular;
                 searchRequest.MaxResults = 10; // Fetch 10 trending videos
-                searchRequest.RegionCode = "US"; // You can change this to your desired region
+                searchRequest.RegionCode = "MY"; // You can change this to your desired region
 
                 var searchResponse = await searchRequest.ExecuteAsync();
 
