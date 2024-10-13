@@ -42,6 +42,7 @@ namespace YouTubeApiProject.Controllers
 
             var (videos, nextPageToken, prevPageToken) = await _youtubeService.SearchVideosAsync(query, pageToken);
 
+            // Here, we can return the videos from the search along with related videos if needed
             return View("Index", new YouTubeSearchResultsModel
             {
                 Videos = videos,
@@ -49,6 +50,31 @@ namespace YouTubeApiProject.Controllers
                 PrevPageToken = prevPageToken,
                 Query = query
             });
+        }
+
+        // Action to watch the video and display related videos
+        public async Task<IActionResult> Watch(string videoId)
+        {
+            if (string.IsNullOrEmpty(videoId))
+            {
+                return NotFound();
+            }
+
+            // Fetch video details using YouTube API
+            var (video, relatedVideos) = await _youtubeService.GetVideoWithRelatedAsync(videoId);
+            if (video == null)
+            {
+                return NotFound();
+            }
+
+            // Create a view model to pass video and related videos to the view
+            var watchViewModel = new YouTubeVideoViewModel
+            {
+                Video = video,
+                RelatedVideos = relatedVideos
+            };
+
+            return View(watchViewModel); // Pass video and related videos to the view
         }
     }
 }

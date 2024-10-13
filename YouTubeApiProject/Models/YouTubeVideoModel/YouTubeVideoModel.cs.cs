@@ -17,4 +17,16 @@
         public string PrevPageToken { get; set; }
         public string Query { get; set; }
     }
+
+    public class WatchViewModel
+    {
+        public YouTubeVideoModel CurrentVideo { get; set; }
+        public List<YouTubeVideoModel> RelatedVideos { get; set; }
+    }
+
+    public class YouTubeVideoViewModel
+    {
+        public YouTubeVideoModel Video { get; set; }
+        public List<YouTubeVideoModel> RelatedVideos { get; set; }
+    }
 }
