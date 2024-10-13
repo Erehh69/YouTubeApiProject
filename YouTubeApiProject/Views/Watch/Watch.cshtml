@@ -1,0 +1,35 @@
+﻿@model YouTubeApiProject.Models.YouTubeVideoViewModel
+
+@{
+    ViewData["Title"] = Model.Video.Title;
+}
+
+<div class="container mt-5">
+    <h2 class="text-center">@Model.Video.Title</h2>
+
+    <!-- Embed YouTube Video -->
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/@Model.Video.VideoId" allowfullscreen></iframe>
+    </div>
+
+    <div class="mt-4">
+        <h5>Description:</h5>
+        <p>@Model.Video.Description</p>
+    </div>
+
+    <h5>Related Videos:</h5>
+    <div class="row mt-3">
+        @foreach (var relatedVideo in Model.RelatedVideos)
+        {
+            <div class="col-md-4 d-flex align-items-stretch mb-4">
+                <div class="card w-100">
+                    <img class="card-img-top" src="@relatedVideo.ThumbnailUrl" alt="@relatedVideo.Title" />
+                    <div class="card-body">
+                        <h5 class="card-title">@relatedVideo.Title</h5>
+                        <a href="@Url.Action("Index", "Watch", new { id = relatedVideo.VideoId })" class="btn btn-danger">Watch</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

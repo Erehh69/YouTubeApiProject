@@ -1,0 +1,10 @@
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.csproj.AssemblyReference.cache
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.AssemblyInfoInputs.cache
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.AssemblyInfo.cs
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.csproj.CoreCompileInputs.cache
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.RazorAssemblyInfo.cache
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.RazorAssemblyInfo.cs
+C:\Users\Hilal\source\repos\YouTubeApiProject\YouTubeApiProject\obj\Release\net8.0\YouTubeApiProject.sourcelink.json

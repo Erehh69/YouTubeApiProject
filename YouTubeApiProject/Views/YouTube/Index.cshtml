@@ -23,7 +23,8 @@
                         <div class="card-body">
                             <h5 class="card-title">@video.Title</h5>
                             <p class="card-text">@video.Description</p>
-                            <a href="https://www.youtube.com/watch?v=@video.VideoId" target="_blank" class="btn btn-danger">Watch on YouTube</a>
+                            <!-- Update this link to go to your own Watch action -->
+                            <a href="@Url.Action("Watch", "Watch", new { id = video.VideoId })" class="btn btn-danger">Watch</a>
                         </div>
                     </div>
                 </div>

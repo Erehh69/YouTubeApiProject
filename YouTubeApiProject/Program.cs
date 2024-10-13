@@ -18,12 +18,22 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseRouting();
+app.UseRouting(); // Add this before app.UseEndpoints()
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    // Add specific route for WatchController
+    endpoints.MapControllerRoute(
+        name: "watch",
+        pattern: "Watch/{id?}",
+        defaults: new { controller = "Watch", action = "Watch" });
+});
 
 app.Run();
+
