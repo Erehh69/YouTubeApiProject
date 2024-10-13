@@ -28,7 +28,8 @@
                                 <strong>Views:</strong> @video.ViewCount<br />
                                 <strong>Likes:</strong> @video.LikeCount
                             </p>
-                            <a href="https://www.youtube.com/watch?v=@video.VideoId" target="_blank" class="btn btn-danger">Watch on YouTube</a>
+                            <!-- Update the link to use the Watch action instead of YouTube -->
+                            <a href="@Url.Action("Watch", "Watch", new { id = video.VideoId })" class="btn btn-danger">Watch</a>
                         </div>
                     </div>
                 </div>
